@@ -4,7 +4,6 @@ import 'package:ticket_booking/screens/hotel_screen.dart';
 import 'package:ticket_booking/screens/ticket_view.dart';
 import 'package:ticket_booking/utils/app_styles.dart';
 import 'package:ticket_booking/utils/sample_data.dart';
-
 import '../utils/FiledDecoration.dart';
 
 class Home_Screen extends StatefulWidget {
@@ -95,13 +94,7 @@ class _Home_ScreenState extends State<Home_Screen> {
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
-              children: const [
-                TicketView(),
-                TicketView(),
-                TicketView(),
-                TicketView(),
-                TicketView(),
-              ],
+              children: ticketList.map((tickets) =>TicketView(tickets: tickets)).toList(),
             ),
           ),
           const SizedBox(
@@ -118,7 +111,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    print("Tappe d View All");
+                    print("Tapped View All");
                   },
                   child: Text(
                     "View All",
